@@ -1,0 +1,55 @@
+---
+layout: base.njk
+title: Калькуляторы
+permalink: /calculators/
+---
+<h1>Калькуляторы</h1>
+<p class="muted">Учебные расчёты. Не используйте их для реального планирования рейса: для этого нужны официальные данные и приборы судна.</p>
+
+<section class="panel calc" data-calc="knots-kmh">
+  <h2>Узлы и км/ч</h2>
+  <label>Узлы <input type="number" min="0" step="any" data-in="a"></label>
+  <p class="formula">км/ч = узлы × 1,852</p>
+  <p class="result" data-out aria-live="polite"></p>
+  <label>Км/ч <input type="number" min="0" step="any" data-in="b"></label>
+  <p class="formula">узлы = км/ч / 1,852</p>
+  <p class="result" data-out2 aria-live="polite"></p>
+</section>
+
+<section class="panel calc" data-calc="miles">
+  <h2>Морские мили и километры</h2>
+  <label>Морские мили <input type="number" min="0" step="any" data-in="a"></label>
+  <p class="formula">км = мили × 1,852</p>
+  <p class="result" data-out aria-live="polite"></p>
+  <label>Километры <input type="number" min="0" step="any" data-in="b"></label>
+  <p class="formula">мили = км / 1,852</p>
+  <p class="result" data-out2 aria-live="polite"></p>
+</section>
+
+<section class="panel calc" data-calc="eta">
+  <h2>Время перехода и прибытия</h2>
+  <label>Расстояние, морские мили <input type="number" min="0" step="any" data-in="dist"></label>
+  <label>Скорость, узлы <input type="number" min="0" step="any" data-in="speed"></label>
+  <label>Текущее время (ЧЧ:ММ) <input type="time" data-in="now"></label>
+  <p class="formula">время = расстояние / скорость; прибытие = текущее время + время</p>
+  <p class="result" data-out aria-live="polite"></p>
+</section>
+
+<section class="panel calc" data-calc="coords">
+  <h2>Градусы и минуты ↔ десятичные градусы</h2>
+  <label>Градусы <input type="number" min="0" max="180" step="1" data-in="deg"></label>
+  <label>Минуты <input type="number" min="0" max="59.999" step="any" data-in="min"></label>
+  <p class="formula">десятичные градусы = градусы + минуты / 60</p>
+  <p class="result" data-out aria-live="polite"></p>
+  <label>Десятичные градусы <input type="number" min="0" max="180" step="any" data-in="dec"></label>
+  <p class="formula">градусы = целая часть; минуты = (дробная часть × 60)</p>
+  <p class="result" data-out2 aria-live="polite"></p>
+</section>
+
+<section class="panel calc" data-calc="fuel">
+  <h2>Расход топлива (учебный пример)</h2>
+  <label>Расход, т/сутки <input type="number" min="0" step="any" data-in="rate"></label>
+  <label>Время, часы <input type="number" min="0" step="any" data-in="hours"></label>
+  <p class="formula">расход за время = (т/сутки / 24) × часы</p>
+  <p class="result" data-out aria-live="polite"></p>
+</section>

@@ -1,0 +1,61 @@
+---
+layout: base.njk
+title: Главная
+permalink: /
+---
+<section class="hero">
+  <h1>Maritime Academy</h1>
+  <p>Личный центр обучения судовождению: от морской терминологии до навигации и правил на воде.</p>
+  <form class="big-search" action="/search/" method="get" role="search">
+    <input type="search" name="q" placeholder="Найти статью или термин" aria-label="Найти статью или термин">
+    <button type="submit" class="btn">Найти</button>
+  </form>
+</section>
+
+<section class="panel">
+  <h2>Мой прогресс</h2>
+  <div class="stats">
+    <div class="stat"><span class="stat-value" data-stat="completed">0</span><span class="stat-label">уроков пройдено</span></div>
+    <div class="stat"><span class="stat-value" data-stat="bookmarks">0</span><span class="stat-label">в закладках</span></div>
+    <div class="stat"><span class="stat-value" data-stat="today">0</span><span class="stat-label">сегодня из <span data-stat="goal">1</span></span></div>
+    <div class="stat"><span class="stat-value" data-stat="tests">0</span><span class="stat-label">тестов пройдено</span></div>
+  </div>
+  <div class="progress-bar" aria-hidden="true"><div class="progress-fill" data-stat-bar style="width:0%"></div></div>
+  <p class="muted" data-level>Уровень подготовки: определяется…</p>
+</section>
+
+<section class="panel">
+  <h2>Продолжить обучение</h2>
+  <p data-next-lesson class="muted">Загрузка…</p>
+</section>
+
+<section class="panel">
+  <h2>Избранное</h2>
+  <ul class="article-list" data-home-bookmarks>
+    <li class="empty">Загрузка…</li>
+  </ul>
+</section>
+
+<section class="panel">
+  <h2>Последние результаты тестов</h2>
+  <ul class="article-list" data-home-tests>
+    <li class="empty">Загрузка…</li>
+  </ul>
+  <p><a href="/tests/">Все тесты →</a></p>
+</section>
+
+<section class="panel">
+  <h2>Недавно открытые</h2>
+  <ul class="article-list" data-recent>
+    <li class="empty">Здесь появятся статьи, которые вы открывали.</li>
+  </ul>
+</section>
+
+<section class="panel">
+  <h2>Разделы</h2>
+  <ul class="section-grid">
+    {% for s in sections %}
+    <li><a class="section-tile" href="/sections/{{ s.id }}/"><strong>{{ s.title }}</strong><span>{{ s.priority }}</span></a></li>
+    {% endfor %}
+  </ul>
+</section>

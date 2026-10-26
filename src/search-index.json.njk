@@ -1,0 +1,12 @@
+---
+permalink: /search-index.json
+---
+[{% for a in collections.articles %}{
+  "title": {{ a.data.title | dump | safe }},
+  "url": {{ a.url | dump | safe }},
+  "slug": {{ a.data.slug | dump | safe }},
+  "section": {{ a.data.section | dump | safe }},
+  "sectionTitle": {{ a.data.section | sectionTitle | dump | safe }},
+  "status": {{ a.data.status | dump | safe }},
+  "text": {{ a.templateContent | plain | dump | safe }}
+}{% if not loop.last %},{% endif %}{% endfor %}]

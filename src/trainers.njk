@@ -1,0 +1,123 @@
+---
+layout: base.njk
+title: Тренажёры
+permalink: /trainers/
+---
+<h1>Тренажёры</h1>
+<p class="muted">Учебные модели. Они упрощены и не заменяют профессиональные приборы и расчёты.</p>
+<p><a href="/trainers/schema/">Интерактивная схема торгового судна →</a></p>
+<p><a href="/trainers/bridge/">Интерактивный навигационный мостик →</a></p>
+
+<section class="panel" data-trainer="buoyancy">
+  <h2>Плавучесть: плотность тела и воды</h2>
+  <p class="muted">Двигайте ползунки. Модель показывает, какая часть тела находится под водой, если тело плавает. Если плотность тела больше плотности воды, оно тонет.</p>
+  <label class="field">Плотность тела, кг/м³ <span data-val="body">800</span>
+    <input type="range" min="400" max="1300" step="5" value="800" data-in="body"></label>
+  <label class="field">Плотность воды, кг/м³ <span data-val="water">1025</span>
+    <input type="range" min="900" max="1100" step="5" value="1025" data-in="water"></label>
+  <svg class="buoy" viewBox="0 0 320 200" role="img" aria-labelledby="buoy-title">
+    <title id="buoy-title">Схема погружения тела</title>
+    <rect x="0" y="0" width="320" height="200" style="fill:var(--surface-2)"></rect>
+    <rect x="0" y="100" width="320" height="100" style="fill:#1d5c8c;opacity:0.7"></rect>
+    <rect data-body x="120" y="20" width="80" height="80" rx="6" style="fill:var(--accent)"></rect>
+    <line x1="0" y1="100" x2="320" y2="100" stroke="var(--text)" stroke-dasharray="4 4"></line>
+  </svg>
+  <p class="result" data-buoy-result aria-live="polite"></p>
+</section>
+
+<section class="panel" data-trainer="colreg">
+  <h2>COLREG: учебные ситуации</h2>
+  <p class="muted">Выберите действие судна. Ситуации условные и не заменяют правила и решения на вахте.</p>
+  <div data-colreg-area></div>
+</section>
+
+<section class="panel" data-trainer="coords">
+  <h2>Координаты: перевод градусов и минут</h2>
+  <p class="muted">Тренажёр задаёт десятичные градусы. Переведите в градусы и минуты (минуты с одним знаком после запятой).</p>
+  <p class="result" data-coords-task></p>
+  <label class="field">Градусы <input type="number" min="0" max="180" step="1" data-coords-deg></label>
+  <label class="field">Минуты <input type="number" min="0" max="60" step="0.1" data-coords-min></label>
+  <div class="article-actions">
+    <button type="button" class="btn" data-coords-check>Проверить</button>
+    <button type="button" class="btn btn-ghost" data-coords-next>Новое задание</button>
+  </div>
+  <p class="feedback" data-coords-feedback aria-live="polite"></p>
+</section>
+
+<section class="panel" data-trainer="motion">
+  <h2>Движение судна по карте</h2>
+  <p class="muted">Учебная упрощённая модель: судно движется прямолинейно с постоянной скоростью, течение складывается с движением. Это не модель реального судна: инерция, циркуляция и дрейф не учитываются.</p>
+  <div class="motion-grid">
+    <label class="field">Курс, ° <input type="number" min="0" max="359" step="1" value="45" data-motion="course"></label>
+    <label class="field">Скорость, узлы <input type="number" min="0" max="30" step="0.5" value="10" data-motion="speed"></label>
+    <label class="field">Время, мин <input type="number" min="1" max="120" step="1" value="60" data-motion="time"></label>
+    <label class="field">Течение: куда, ° <input type="number" min="0" max="359" step="1" value="90" data-motion="set"></label>
+    <label class="field">Течение: скорость, узлы <input type="number" min="0" max="6" step="0.1" value="0" data-motion="drift"></label>
+  </div>
+  <div class="article-actions">
+    <button type="button" class="btn" data-motion-run>Пустить судно</button>
+  </div>
+  <svg class="chart" viewBox="0 0 400 400" role="img" aria-label="Учебная карта движения судна" data-motion-svg>
+    <rect x="0" y="0" width="400" height="400" style="fill:var(--surface-2)"></rect>
+    <g data-motion-grid style="stroke:var(--border)"></g>
+    <text x="200" y="14" text-anchor="middle" class="label" style="fill:var(--muted);font-size:11px">N</text>
+    <line data-motion-water x1="200" y1="200" x2="200" y2="200" style="stroke:var(--muted);stroke-dasharray:5 4;stroke-width:1.5"></line>
+    <line data-motion-track x1="200" y1="200" x2="200" y2="200" style="stroke:var(--accent);stroke-width:2.5"></line>
+    <circle cx="200" cy="200" r="4" style="fill:var(--text)"></circle>
+    <circle data-motion-ship cx="200" cy="200" r="6" style="fill:var(--warn)"></circle>
+  </svg>
+  <p class="muted">Сетка: 1 клетка = 2 морские мили. Пунктир — путь относительно воды, сплошная линия — относительно грунта.</p>
+  <p class="result" data-motion-result aria-live="polite"></p>
+</section>
+
+<section class="panel" data-trainer="flashcards">
+  <h2>Морской английский: карточки</h2>
+  <p class="muted">Термины из словаря сайта. В режиме карточек переверните карточку и оцените себя. В режиме теста выберите правильный перевод.</p>
+  <div class="view-switch" role="group" aria-label="Режим">
+    <button type="button" class="btn btn-ghost" data-fc-mode="cards" aria-pressed="true">Карточки</button>
+    <button type="button" class="btn btn-ghost" data-fc-mode="quiz" aria-pressed="false">Тест на перевод</button>
+  </div>
+  <div data-fc-area aria-live="polite"><p class="muted">Загрузка терминов…</p></div>
+</section>
+
+<section class="panel">
+  <h2>Метеорология: чтение обстановки</h2>
+  <p class="muted">Даны наблюдения на борту. Выберите наиболее вероятный вывод. Учебные ситуации, не замена прогнозу.</p>
+  <div data-quiz-set="meteo"></div>
+</section>
+
+<section class="panel">
+  <h2>Навигационные приборы: показания и ограничения</h2>
+  <p class="muted">Даны показания приборов. Выберите правильное толкование или действие.</p>
+  <div data-quiz-set="instruments"></div>
+</section>
+
+<section class="panel" data-trainer="situations">
+  <h2>Ситуационные задачи</h2>
+  <p class="muted">Составные учебные сценарии: в каждом несколько шагов, на каждом нужно выбрать действие. Условные данные, не для реального применения.</p>
+  <div data-situation-area></div>
+</section>
+
+<section class="panel" data-trainer="chart">
+  <h2>Учебная карта: путевые точки</h2>
+  <p class="muted">Условная карта: 59°–60° N, 030°–031° E. Нажимайте на карту, чтобы поставить путевые точки. Расстояние считается приближённо, по учебной формуле.</p>
+  <svg class="chart" viewBox="0 0 400 400" role="img" aria-label="Учебная карта" data-chart>
+    <rect x="0" y="0" width="400" height="400" style="fill:var(--surface-2)"></rect>
+    <g style="stroke:var(--border)" data-grid></g>
+    <polyline data-route points="" style="fill:none;stroke:var(--accent);stroke-width:2.5"></polyline>
+    <g data-points></g>
+  </svg>
+  <div class="article-actions">
+    <button type="button" class="btn btn-ghost" data-chart-reset>Очистить точки</button>
+  </div>
+  <p class="result" data-chart-info aria-live="polite">Поставьте первую точку.</p>
+</section>
+
+<section class="panel" data-trainer="stability">
+  <h2>Остойчивость: метацентрическая высота</h2>
+  <p class="muted">Учебная модель: GM = KM − KG − поправка на свободную поверхность. Значения условные, для расчётов используйте документацию судна.</p>
+  <label class="field">KM, м <input type="number" min="0" step="0.01" value="6" data-stab="km"></label>
+  <label class="field">KG, м <input type="number" min="0" step="0.01" value="5" data-stab="kg"></label>
+  <label class="field">Поправка на свободную поверхность, м <input type="number" min="0" step="0.01" value="0" data-stab="fsc"></label>
+  <p class="result" data-stab-result aria-live="polite"></p>
+</section>

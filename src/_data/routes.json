@@ -1,0 +1,23 @@
+[
+  {
+    "id": "start",
+    "level": 1,
+    "title": "Старт: основы",
+    "description": "Термины, единицы, карта, первые расчёты и физика плавучести.",
+    "articles": ["osnovy-terminy", "osnovy-edinicy", "osnovy-karty", "math-skorost-vremya", "physics-davlenie-plavuchest", "physics-moment-ravnovesie"]
+  },
+  {
+    "id": "pravila",
+    "level": 2,
+    "title": "Правила на воде",
+    "description": "МППСС-72: огни, встречные курсы, обгон и ограниченная видимость.",
+    "articles": ["navigation-navigatsionnye-ogni", "pravila-obshchie", "pravila-vstrechnoe", "pravila-obgon", "pravila-ogranichennaya-vidimost"]
+  },
+  {
+    "id": "navigatsiya",
+    "level": 2,
+    "title": "Навигация",
+    "description": "Координаты, курсы, счисление, ориентиры, глубины и маршрут.",
+    "articles": ["navigation-koordinaty", "navigation-kursy-pelengi", "navigation-schislenie", "navigation-vizualnye-orientiry", "navigation-glubiny", "navigation-marshrut"]
+  }
+]

@@ -1,0 +1,69 @@
+---
+layout: base.njk
+title: Навигационный мостик
+permalink: /trainers/bridge/
+---
+<p class="crumbs"><a href="/trainers/">Тренажёры</a></p>
+<h1>Навигационный мостик</h1>
+<p class="muted">Нажмите прибор, чтобы увидеть, для чего он нужен и какие у него ограничения. Расположение условное: на реальных судах мостики устроены по-разному.</p>
+
+<section class="panel">
+  <svg class="ship" viewBox="0 0 640 300" role="group" aria-label="Схема навигационного мостика">
+    <rect x="0" y="0" width="640" height="300" rx="12" style="fill:var(--bg)"></rect>
+    <rect x="20" y="20" width="600" height="60" rx="8" style="fill:var(--surface-2);stroke:var(--border)"></rect>
+    <text x="320" y="56" text-anchor="middle" class="label">Лобовые окна: визуальное наблюдение</text>
+    <path d="M40 120 Q320 90 600 120 L600 200 L40 200 Z" style="fill:var(--surface);stroke:var(--border)"></path>
+
+    <g class="part" data-bridge="radar" tabindex="0" role="button" aria-label="Радар и ARPA">
+      <rect x="60" y="125" width="90" height="60" rx="6" style="fill:var(--surface-3);stroke:var(--border-strong)"></rect>
+      <circle cx="105" cy="152" r="20" style="fill:none;stroke:var(--accent)"></circle>
+      <text x="105" y="200" text-anchor="middle" class="label">радар</text>
+    </g>
+    <g class="part" data-bridge="ecdis" tabindex="0" role="button" aria-label="ECDIS">
+      <rect x="165" y="120" width="100" height="65" rx="6" style="fill:var(--surface-3);stroke:var(--border-strong)"></rect>
+      <path d="M180 170 L205 145 L230 158 L250 135" style="fill:none;stroke:var(--accent);stroke-width:2"></path>
+      <text x="215" y="200" text-anchor="middle" class="label">ECDIS</text>
+    </g>
+    <g class="part" data-bridge="autopilot" tabindex="0" role="button" aria-label="Авторулевой и штурвал">
+      <circle cx="320" cy="160" r="26" style="fill:var(--surface-3);stroke:var(--border-strong)"></circle>
+      <circle cx="320" cy="160" r="8" style="fill:var(--accent)"></circle>
+      <text x="320" y="200" text-anchor="middle" class="label">руль</text>
+    </g>
+    <g class="part" data-bridge="gyro" tabindex="0" role="button" aria-label="Репитер гирокомпаса">
+      <circle cx="390" cy="150" r="20" style="fill:var(--surface-3);stroke:var(--border-strong)"></circle>
+      <path d="M390 134 L394 150 L390 166 L386 150 Z" style="fill:var(--warn)"></path>
+      <text x="390" y="200" text-anchor="middle" class="label">компас</text>
+    </g>
+    <g class="part" data-bridge="telegraph" tabindex="0" role="button" aria-label="Машинный телеграф">
+      <rect x="430" y="125" width="40" height="60" rx="6" style="fill:var(--surface-3);stroke:var(--border-strong)"></rect>
+      <rect x="442" y="140" width="16" height="8" style="fill:var(--accent)"></rect>
+      <text x="450" y="200" text-anchor="middle" class="label">машина</text>
+    </g>
+    <g class="part" data-bridge="echo" tabindex="0" role="button" aria-label="Эхолот и лаг">
+      <rect x="485" y="125" width="95" height="60" rx="6" style="fill:var(--surface-3);stroke:var(--border-strong)"></rect>
+      <text x="532" y="160" text-anchor="middle" class="label">12,4 м</text>
+      <text x="532" y="200" text-anchor="middle" class="label">эхолот, лаг</text>
+    </g>
+
+    <rect x="40" y="215" width="560" height="65" rx="8" style="fill:var(--surface);stroke:var(--border)"></rect>
+    <g class="part" data-bridge="vhf" tabindex="0" role="button" aria-label="УКВ-радиостанция">
+      <rect x="70" y="228" width="120" height="40" rx="6" style="fill:var(--surface-3);stroke:var(--border-strong)"></rect>
+      <text x="130" y="253" text-anchor="middle" class="label">УКВ, канал 16</text>
+    </g>
+    <g class="part" data-bridge="gmdss" tabindex="0" role="button" aria-label="Пульт GMDSS">
+      <rect x="210" y="228" width="120" height="40" rx="6" style="fill:var(--surface-3);stroke:var(--border-strong)"></rect>
+      <text x="270" y="253" text-anchor="middle" class="label">GMDSS</text>
+    </g>
+    <g class="part" data-bridge="navtex" tabindex="0" role="button" aria-label="NAVTEX">
+      <rect x="350" y="228" width="100" height="40" rx="6" style="fill:var(--surface-3);stroke:var(--border-strong)"></rect>
+      <text x="400" y="253" text-anchor="middle" class="label">NAVTEX</text>
+    </g>
+    <g class="part" data-bridge="ais" tabindex="0" role="button" aria-label="AIS">
+      <rect x="470" y="228" width="100" height="40" rx="6" style="fill:var(--surface-3);stroke:var(--border-strong)"></rect>
+      <text x="520" y="253" text-anchor="middle" class="label">AIS</text>
+    </g>
+  </svg>
+  <div class="bridge-card" data-bridge-card aria-live="polite">
+    <p class="muted">Выберите прибор на схеме.</p>
+  </div>
+</section>

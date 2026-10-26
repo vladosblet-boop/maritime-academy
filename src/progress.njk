@@ -1,0 +1,29 @@
+---
+layout: base.njk
+title: Мой прогресс
+permalink: /progress/
+---
+<h1>Мой прогресс</h1>
+<p class="muted">Данные хранятся только в этом браузере на этом устройстве. Сохраните резервную копию, чтобы не потерять их при очистке браузера.</p>
+
+<section class="panel">
+  <h2>Пройденные уроки</h2>
+  <ul class="article-list" data-list="completed"><li class="empty">Пока ничего не отмечено.</li></ul>
+</section>
+
+<section class="panel">
+  <h2>Закладки</h2>
+  <ul class="article-list" data-list="bookmarks"><li class="empty">Закладок пока нет.</li></ul>
+</section>
+
+<section class="panel">
+  <h2>Резервная копия</h2>
+  <div class="article-actions">
+    <button type="button" class="btn" data-action="export">Экспорт в файл</button>
+    <button type="button" class="btn btn-danger" data-action="reset">Сбросить прогресс</button>
+  </div>
+  <p class="muted" data-message aria-live="polite"></p>
+  <label class="field">Восстановить из файла
+    <input type="file" accept="application/json" data-import>
+  </label>
+</section>

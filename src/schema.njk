@@ -1,0 +1,110 @@
+---
+layout: base.njk
+title: Схема судна
+permalink: /trainers/schema/
+---
+<h1>Схема торгового судна</h1>
+<p class="muted">Нажмите часть судна, чтобы увидеть описание. Схема упрощённая: положение и размеры условные.</p>
+
+<section class="panel">
+  <div class="view-switch" role="group" aria-label="Вид схемы">
+    <button type="button" class="btn btn-ghost" data-view="side" aria-pressed="true">Вид сбоку</button>
+    <button type="button" class="btn btn-ghost" data-view="top" aria-pressed="false">Вид сверху</button>
+    <button type="button" class="btn btn-ghost" data-view="section" aria-pressed="false">Поперечное сечение</button>
+  </div>
+  <svg class="ship" viewBox="0 0 640 260" role="group" aria-label="Схема судна, вид сбоку" data-view-svg="side">
+    <rect x="0" y="200" width="640" height="60" style="fill:#1d5c8c;opacity:0.55"></rect>
+    <path d="M60 150 L580 150 L540 220 L110 220 Z" style="fill:var(--surface-2);stroke:var(--border)"></path>
+    <g class="part" data-part="bow" tabindex="0" role="button" aria-label="Нос">
+      <path d="M580 150 L620 150 L580 220 Z" style="fill:var(--accent);opacity:0.8"></path>
+      <text x="598" y="190" text-anchor="middle" class="label">нос</text>
+    </g>
+    <g class="part" data-part="stern" tabindex="0" role="button" aria-label="Корма">
+      <rect x="30" y="130" width="50" height="20" style="fill:var(--accent);opacity:0.8"></rect>
+      <text x="55" y="168" text-anchor="middle" class="label">корма</text>
+    </g>
+    <g class="part" data-part="hold" tabindex="0" role="button" aria-label="Грузовое помещение">
+      <rect x="170" y="165" width="200" height="45" style="fill:var(--surface);stroke:var(--border)"></rect>
+      <text x="270" y="193" text-anchor="middle" class="label">грузовой трюм</text>
+    </g>
+    <g class="part" data-part="bridge" tabindex="0" role="button" aria-label="Мостик">
+      <rect x="400" y="80" width="90" height="70" style="fill:var(--surface);stroke:var(--border)"></rect>
+      <text x="445" y="120" text-anchor="middle" class="label">мостик</text>
+    </g>
+    <g class="part" data-part="engine" tabindex="0" role="button" aria-label="Машинное отделение">
+      <rect x="60" y="100" width="90" height="50" style="fill:var(--surface);stroke:var(--border)"></rect>
+      <text x="105" y="130" text-anchor="middle" class="label">машина</text>
+    </g>
+    <g class="part" data-part="rudder" tabindex="0" role="button" aria-label="Руль">
+      <rect x="22" y="180" width="10" height="30" style="fill:var(--warn)"></rect>
+    </g>
+    <g class="part" data-part="ballast" tabindex="0" role="button" aria-label="Балластный танк">
+      <rect x="110" y="200" width="60" height="18" style="fill:var(--surface-2);stroke:var(--border)"></rect>
+    </g>
+  </svg>
+  <svg class="ship" viewBox="0 0 640 260" role="group" aria-label="Схема судна, вид сверху" data-view-svg="top" hidden>
+    <rect x="0" y="0" width="640" height="260" style="fill:#1d5c8c;opacity:0.45"></rect>
+    <path d="M60 130 L500 60 L600 130 L500 200 L60 200 Z" style="fill:var(--surface-2);stroke:var(--border)"></path>
+    <g class="part" data-part="bow" tabindex="0" role="button" aria-label="Нос">
+      <path d="M500 60 L600 130 L500 200 Z" style="fill:var(--accent);opacity:0.8"></path>
+      <text x="548" y="134" text-anchor="middle" class="label">нос</text>
+    </g>
+    <g class="part" data-part="stern" tabindex="0" role="button" aria-label="Корма">
+      <rect x="40" y="105" width="50" height="50" style="fill:var(--accent);opacity:0.8"></rect>
+      <text x="65" y="134" text-anchor="middle" class="label">корма</text>
+    </g>
+    <g class="part" data-part="hold" tabindex="0" role="button" aria-label="Грузовое помещение">
+      <rect x="200" y="85" width="180" height="90" style="fill:var(--surface);stroke:var(--border)"></rect>
+      <text x="290" y="134" text-anchor="middle" class="label">грузовой трюм</text>
+    </g>
+    <g class="part" data-part="bridge" tabindex="0" role="button" aria-label="Мостик">
+      <rect x="400" y="95" width="60" height="70" style="fill:var(--surface);stroke:var(--border)"></rect>
+      <text x="430" y="134" text-anchor="middle" class="label">мостик</text>
+    </g>
+    <g class="part" data-part="engine" tabindex="0" role="button" aria-label="Машинное отделение">
+      <rect x="110" y="95" width="70" height="70" style="fill:var(--surface);stroke:var(--border)"></rect>
+      <text x="145" y="134" text-anchor="middle" class="label">машина</text>
+    </g>
+    <g class="part" data-part="rudder" tabindex="0" role="button" aria-label="Руль">
+      <rect x="22" y="122" width="22" height="16" style="fill:var(--warn)"></rect>
+    </g>
+    <g class="part" data-part="ballast" tabindex="0" role="button" aria-label="Балластный танк">
+      <rect x="200" y="200" width="180" height="12" style="fill:var(--surface-2);stroke:var(--border)"></rect>
+    </g>
+  </svg>
+  <svg class="ship" viewBox="0 0 640 300" role="group" aria-label="Схема судна, поперечное сечение" data-view-svg="section" hidden>
+    <rect x="0" y="0" width="640" height="300" style="fill:var(--bg)"></rect>
+    <rect x="0" y="170" width="640" height="130" style="fill:#1d5c8c;opacity:0.45"></rect>
+    <line x1="0" y1="170" x2="640" y2="170" style="stroke:var(--text);stroke-dasharray:4 4"></line>
+    <text x="600" y="164" text-anchor="end" class="label">ватерлиния</text>
+    <path d="M150 40 L490 40 L490 230 Q490 262 458 262 L182 262 Q150 262 150 230 Z" style="fill:var(--surface-2);stroke:var(--border-strong)"></path>
+    <g class="part" data-part="hatch" tabindex="0" role="button" aria-label="Крышка люка">
+      <rect x="235" y="26" width="170" height="16" rx="3" style="fill:var(--warn)"></rect>
+      <text x="320" y="20" text-anchor="middle" class="label">крышка люка</text>
+    </g>
+    <g class="part" data-part="deck" tabindex="0" role="button" aria-label="Главная палуба">
+      <rect x="150" y="40" width="85" height="10" style="fill:var(--accent);opacity:0.8"></rect>
+      <rect x="405" y="40" width="85" height="10" style="fill:var(--accent);opacity:0.8"></rect>
+      <text x="192" y="68" text-anchor="middle" class="label">палуба</text>
+    </g>
+    <g class="part" data-part="hold" tabindex="0" role="button" aria-label="Грузовой трюм">
+      <rect x="205" y="55" width="230" height="160" style="fill:var(--surface);stroke:var(--border)"></rect>
+      <text x="320" y="140" text-anchor="middle" class="label">грузовой трюм</text>
+    </g>
+    <g class="part" data-part="wingtank" tabindex="0" role="button" aria-label="Бортовые танки">
+      <rect x="155" y="55" width="45" height="160" style="fill:var(--surface-3);stroke:var(--border)"></rect>
+      <rect x="440" y="55" width="45" height="160" style="fill:var(--surface-3);stroke:var(--border)"></rect>
+      <text x="177" y="140" text-anchor="middle" class="label">танк</text>
+      <text x="462" y="140" text-anchor="middle" class="label">танк</text>
+    </g>
+    <g class="part" data-part="ballast" tabindex="0" role="button" aria-label="Двойное дно и балластные танки">
+      <rect x="160" y="220" width="320" height="34" rx="6" style="fill:var(--surface-3);stroke:var(--border)"></rect>
+      <text x="320" y="242" text-anchor="middle" class="label">двойное дно: балласт</text>
+    </g>
+    <g class="part" data-part="keel" tabindex="0" role="button" aria-label="Киль">
+      <rect x="305" y="258" width="30" height="10" style="fill:var(--accent)"></rect>
+      <text x="320" y="286" text-anchor="middle" class="label">киль</text>
+    </g>
+  </svg>
+  <p class="result" data-ship-info aria-live="polite">Выберите часть судна.</p>
+</section>

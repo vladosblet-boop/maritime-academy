@@ -1,0 +1,41 @@
+---
+layout: base.njk
+title: Мои данные
+permalink: /data/
+---
+<h1>Мои данные</h1>
+<p class="muted">Все данные хранятся только в этом браузере на этом устройстве. Если очистить данные браузера или открыть сайт в другом браузере, без резервной копии они пропадут. Регулярно сохраняйте копию в файл.</p>
+
+<section class="panel">
+  <h2>Что сохранено</h2>
+  <table>
+    <tbody data-mydata></tbody>
+  </table>
+</section>
+
+<section class="panel">
+  <h2>Дневная цель</h2>
+  <label class="field">Сколько уроков проходить в день
+    <input type="number" min="1" max="20" step="1" data-goal-input>
+  </label>
+  <div class="article-actions">
+    <button type="button" class="btn" data-goal-save>Сохранить</button>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>Резервная копия</h2>
+  <div class="article-actions">
+    <button type="button" class="btn" data-action="export">Экспорт в файл</button>
+    <button type="button" class="btn btn-danger" data-action="reset">Сбросить прогресс</button>
+  </div>
+  <label class="field">Восстановить из файла
+    <input type="file" accept="application/json" data-import>
+  </label>
+  <p class="muted" data-message aria-live="polite"></p>
+</section>
+
+<section class="panel">
+  <h2>Данные целиком</h2>
+  <pre class="raw" data-raw></pre>
+</section>

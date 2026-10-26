@@ -1,0 +1,15 @@
+---
+layout: base.njk
+title: Каталог
+permalink: /catalog/
+---
+<h1>Каталог разделов</h1>
+<ul class="section-list">
+  {% for s in sections %}
+  <li class="section-card">
+    <a href="/sections/{{ s.id }}/"><strong>{{ s.title }}</strong></a>
+    <p>{{ s.description }}</p>
+    <span class="priority">Приоритет {{ s.priority }}</span>
+  </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,12 @@
+---
+layout: base.njk
+title: Поиск
+permalink: /search/
+---
+<h1>Поиск</h1>
+<form class="big-search" id="search-form" action="/search/" method="get" role="search">
+  <input type="search" id="search-input" name="q" placeholder="Например: МППСС, обгон, узлы" aria-label="Поиск" autocomplete="off">
+  <button type="submit" class="btn">Найти</button>
+</form>
+<p class="muted" id="search-status" aria-live="polite">Введите слово из названия или текста статьи.</p>
+<ul class="article-list" id="search-results"></ul>

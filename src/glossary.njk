@@ -1,0 +1,23 @@
+---
+layout: base.njk
+title: Словарь
+permalink: /glossary/
+---
+<h1>Словарь морских терминов</h1>
+<p class="muted">Поиск по русским и английским названиям. Нажмите термин, чтобы открыть статью.</p>
+<div class="filters">
+  <input type="search" id="glossary-search" placeholder="Например: курс или course" aria-label="Поиск по словарю">
+  <select id="glossary-category" aria-label="Категория">
+    <option value="">Все категории</option>
+  </select>
+</div>
+<p class="muted" id="glossary-status" aria-live="polite"></p>
+<ul class="article-list" id="glossary-list">
+  {% for t in glossary | sort(false, false, "ru") %}
+  <li data-term data-ru="{{ t.ru | lower }}" data-en="{{ t.en | lower }}" data-category="{{ t.category }}">
+    <a href="/articles/{{ t.article }}/">{{ t.ru }}</a>
+    <span class="status">{{ t.en }}</span>
+    <p class="muted">{{ t.definition }} <span class="status">{{ t.category }}</span></p>
+  </li>
+  {% endfor %}
+</ul>

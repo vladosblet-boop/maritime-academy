@@ -1,0 +1,19 @@
+---
+layout: base.njk
+title: Тесты
+permalink: /tests/
+---
+<h1>Тесты</h1>
+<p class="muted">Ответы проверяются после того, как вы выбрали вариант для всех вопросов. Результаты сохраняются в вашем браузере.</p>
+
+<section class="panel">
+  <label class="field">Тема
+    <select id="quiz-select" aria-label="Тема теста"></select>
+  </label>
+  <div id="quiz-area" aria-live="polite"></div>
+</section>
+
+<section class="panel">
+  <h2>История попыток</h2>
+  <ul class="article-list" data-tests-history><li class="empty">Попыток пока нет.</li></ul>
+</section>

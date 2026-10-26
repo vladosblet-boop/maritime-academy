@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru" data-base="{{ base }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>{% if title %}{{ title }} · {% endif %}Maritime Academy</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body{% if slug %} data-slug="{{ slug }}"{% endif %}>
+  <header class="site-header">
+    <a class="brand" href="/">
+      <svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true">
+        <circle cx="14" cy="14" r="12.5" style="fill:none;stroke:var(--accent);stroke-width:1.5"></circle>
+        <path d="M14 5 L17 14 L14 23 L11 14 Z" style="fill:var(--accent)"></path>
+        <path d="M14 5 L14 14" style="stroke:var(--bg);stroke-width:1.2"></path>
+      </svg>
+      Maritime Academy
+    </a>
+    <form class="header-search" action="/search/" method="get" role="search">
+      <input type="search" name="q" placeholder="Поиск по энциклопедии" aria-label="Поиск по энциклопедии">
+    </form>
+  </header>
+  <div class="layout">
+    <details class="sidebar" id="sidebar" open>
+      <summary>Меню</summary>
+      <nav aria-label="Основная навигация">
+        <a href="/">Главная</a>
+        <a href="/catalog/">Каталог разделов</a>
+        <a href="/search/">Поиск</a>
+        <a href="/glossary/">Словарь</a>
+        <a href="/tests/">Тесты</a>
+        <a href="/calculators/">Калькуляторы</a>
+        <a href="/trainers/">Тренажёры</a>
+        <a href="/routes/">Учебные маршруты</a>
+        <a href="/progress/">Мой прогресс</a>
+        <a href="/data/">Мои данные</a>
+        <h3>Разделы</h3>
+        <ul>
+          {% for s in sections %}
+          <li><a href="/sections/{{ s.id }}/">{{ s.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </details>
+    <main class="content">
+      {{ content | safe }}
+    </main>
+  </div>
+  <footer class="site-footer">
+    <p>Личный учебный сайт. Данные хранятся только в этом браузере. Статус каждой статьи указан на её странице.</p>
+  </footer>
+  <script src="/js/app.js" defer></script>
+</body>
+</html>

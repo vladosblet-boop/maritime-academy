@@ -1,0 +1,14 @@
+{
+  "name": "sudovozhdenie",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Образовательная платформа по судовождению",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "node -e \"require('fs').rmSync('_site',{recursive:true,force:true})\" && eleventy",
+    "check": "node tests/check-links.js && node tests/check-site.js"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

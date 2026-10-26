@@ -1,0 +1,22 @@
+---
+layout: base.njk
+---
+<article class="article">
+  <p class="crumbs"><a href="/catalog/">Каталог</a>{% for s in sections %}{% if s.id == section %} / <a href="/sections/{{ s.id }}/">{{ s.title }}</a>{% endif %}{% endfor %}</p>
+  <h1>{{ title }}</h1>
+  <p class="status status-{{ status | replace(' ', '-') }}">Статус: {{ status }}</p>
+  <div class="article-actions">
+    <button type="button" class="btn" data-action="complete" data-slug="{{ slug }}" aria-pressed="false">Отметить пройденной</button>
+    <button type="button" class="btn btn-ghost" data-action="bookmark" data-slug="{{ slug }}" aria-pressed="false">В закладки</button>
+  </div>
+  {{ content | safe }}
+  {% if related and related.length %}
+  <section class="related">
+    <h2>Связанные темы</h2>
+    <ul class="article-list">
+      {% for a in collections.articles %}{% if a.data.slug in related %}<li><a href="{{ a.url }}">{{ a.data.title }}</a></li>{% endif %}{% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+  <nav class="pager" data-pager aria-label="Соседние статьи"></nav>
+</article>
