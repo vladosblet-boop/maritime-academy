@@ -46,6 +46,15 @@
 - Приватность: без регистрации, аналитики, рекламы, сервера и внешних сервисов.
 - Цены, проходные баллы, зарплаты и конкретные экзамены не указываются.
 
+## Публикация
+
+- Репозиторий: https://github.com/vladosblet-boop/maritime-academy (публичный, по решению пользователя от 2026-10-26).
+- Сайт: https://vladosblet-boop.github.io/maritime-academy/
+- Сборку и публикацию делает GitHub Actions (`.github/workflows/pages.yml`) при каждом push в `main`: обычная сборка и `npm run check`, затем сборка с `PATH_PREFIX=/maritime-academy/`.
+- Префикс подставляется при сборке (transform в `.eleventy.js`), скрипт берёт его из `data-base` на `<html>` через функцию `P()`. Новые пути в шаблонах писать как обычно, с `/`, а в `app.js` — через `P("/...")`.
+- Локальная проверка версии с префиксом в Git Bash: `MSYS_NO_PATHCONV=1 PATH_PREFIX=/maritime-academy/ npx @11ty/eleventy --output=<папка>/maritime-academy`, иначе Git Bash превращает префикс в путь к диску.
+- Прогресс на сайте GitHub и на localhost хранится отдельно (разные адреса в браузере). Перенос — через «Мои данные»: экспорт и импорт.
+
 ## Как запустить
 
 ```
